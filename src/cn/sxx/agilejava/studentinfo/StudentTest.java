@@ -57,18 +57,23 @@ public class StudentTest
 	public void testCalculateGpa()
 	{
 		assertEquals(0.0,  student.getGpa(), FLOAT_TOLERANCE);
-		student.addGpa("A");
-		assertEquals(4.0,  student.getGpa(), FLOAT_TOLERANCE);
-		student.addGpa("B");
-		assertEquals(3.5,  student.getGpa(), FLOAT_TOLERANCE);
-		student.addGpa("C");
-		assertEquals(3.0,  student.getGpa(), FLOAT_TOLERANCE);
-		student.addGpa("D");
-		assertEquals(2.5,  student.getGpa(), FLOAT_TOLERANCE);
-		student.addGpa("F");
-		assertEquals(2.0,  student.getGpa(), FLOAT_TOLERANCE);
+		student.addGpa(Student.Grade.A);
+		assertGpa(student, 4.0);
+		student.addGpa(Student.Grade.B);
+		assertGpa(student, 3.5);
+		student.addGpa(Student.Grade.C);
+		assertGpa(student, 3.0);
+		student.addGpa(Student.Grade.D);
+		assertGpa(student, 2.5);
+		student.addGpa(Student.Grade.F);
+		assertGpa(student, 2.0);
 	}
 
+	private void assertGpa(Student stu, double expectedGpa)
+	{
+		assertEquals(expectedGpa, stu.getGpa(), FLOAT_TOLERANCE);
+	}
+	
 }
 
 

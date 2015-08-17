@@ -1,16 +1,19 @@
 package cn.sxx.agilejava.studentinfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student
 {	
+	public enum Grade {A, B, C, D, F};
 	private static final int CREDITS_REQUIRED_FOR_FULLTIME = 12;
 	public static final String IN_STATE = "CO";
 	
 	private String name;
 	private int credits;
-	private ArrayList<String> grades = new ArrayList<String>();
+	private List<Grade> grades = new ArrayList<Grade>();
 	private String state = "";
+	private GradingStrategy gradingStrategy = new BasicGradingStrategy();
 	
 	public Student(final String name)
 	{
@@ -58,52 +61,23 @@ public class Student
 		if (grades.isEmpty())
 			return 0.0;
 		
-		for (String grade : grades)
+		for (Grade grade : grades)
 		{
-
-			total += gradePointsFor(grade);
+			total += gradingStrategy.getGradePointsFor(grade);
 		}
 		
 		return total / grades.size();
 	}
 
-	private int gradePointsFor(String grade)
-	{
-		int ret = 0;
-		switch (grade)
-		{
-		case "A":
-			ret = 4;
-			break;
-		case "B":
-			ret = 3;
-			break;
-		case "C":
-			ret = 2;
-			break;
-		case "D":
-			ret = 1;
-			break;
-		default:
-			ret = 0;
-			break;
-		}
-		return ret;
-//	if (grade.equals("A"))
-//		return  4;
-//	else if (grade.equals("B"))
-//		return 3;
-//	else if (grade.equals("C"))
-//		return 2;
-//	else if (grade.equals("D"))
-//		return 1;
-//	else	
-//		return 0;
-	}
 
-	public void addGpa(String grade)
+	public void addGpa(Grade grade)
 	{
 		grades.add(grade);
+	}
+
+	public void setGradingStrategy(GradingStrategy gradingStrategy)
+	{
+		this.gradingStrategy = gradingStrategy;
 	}
 	
 	

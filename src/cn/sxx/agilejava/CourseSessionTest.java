@@ -26,8 +26,7 @@ public class CourseSessionTest
 
 	@Test
 	public void testCreate()
-	{
-		
+	{	
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
 	}
