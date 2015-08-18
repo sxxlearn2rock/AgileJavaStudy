@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.sxx.agilejava.CourseSession;
+import cn.sxx.agilejava.courseinfo.CourseSession;
 import cn.sxx.agilejava.studentinfo.Student;
 import cn.sxx.agilejava.util.DateUtil;
 

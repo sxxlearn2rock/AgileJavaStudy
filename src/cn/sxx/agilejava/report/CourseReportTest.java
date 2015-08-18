@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import cn.sxx.agilejava.CourseSession;
+import cn.sxx.agilejava.courseinfo.CourseSession;
 
 public class CourseReportTest
 {

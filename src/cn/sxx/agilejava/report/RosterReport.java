@@ -2,7 +2,7 @@ package cn.sxx.agilejava.report;
 
 import static cn.sxx.agilejava.report.ReportConstant.*;
 
-import cn.sxx.agilejava.CourseSession;
+import cn.sxx.agilejava.courseinfo.CourseSession;
 import cn.sxx.agilejava.studentinfo.Student;
 
 public class RosterReport

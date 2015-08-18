@@ -4,7 +4,7 @@ import static cn.sxx.agilejava.report.ReportConstant.NEWLINE;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import cn.sxx.agilejava.CourseSession;
+import cn.sxx.agilejava.courseinfo.CourseSession;
 
 public class CourseReport
 {
