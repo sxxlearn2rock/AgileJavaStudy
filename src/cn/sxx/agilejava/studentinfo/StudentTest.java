@@ -17,6 +17,26 @@ public class StudentTest
 	{
 		student = new Student("a");		
 	}
+	
+	@Test
+	public void testCreate()
+	{
+		final String firstStuName = "Mad Max";
+		Student firstStudent = new Student(firstStuName);
+		assertEquals("Mad",  firstStudent.getFirstName());
+		assertEquals("Max", firstStudent.getLastName());
+		assertEquals("",  firstStudent.getMidName());		
+		
+		final String secondStuName = "Furiosa";
+		Student secondStudent = new Student(secondStuName);
+		assertEquals("Furiosa", secondStudent.getLastName());
+		
+		final String thirdStuName = "Immune Old Joe";
+		Student thirdStudent = new Student(thirdStuName);
+		assertEquals("Immune",  thirdStudent.getFirstName());
+		assertEquals("Old", thirdStudent.getMidName());
+		assertEquals("Joe",  thirdStudent.getLastName());	
+	}
 
 	@Test
 	public void testFullTime()
@@ -73,6 +93,8 @@ public class StudentTest
 	{
 		assertEquals(expectedGpa, stu.getGpa(), FLOAT_TOLERANCE);
 	}
+	
+
 	
 }
 
