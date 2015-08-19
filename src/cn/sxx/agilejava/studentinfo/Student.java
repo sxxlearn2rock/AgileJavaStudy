@@ -24,6 +24,7 @@ public class Student
 	public static final String IN_STATE = "CO";
 	
 	private String name;
+	private String id = "";
 	private String firstName = "";
 	private String lastName = "";
 	private String midName = "";
@@ -38,6 +39,10 @@ public class Student
 		this.name = fullName;
 		credits = 0;
 		List<String> nameParts = split(fullName);
+		if (nameParts.size() > 3)
+		{
+			throw new StudentNameFormatException();
+		}
 		setName(nameParts);
 	}
 
@@ -49,28 +54,6 @@ public class Student
 			ret.add(string);
 		}
 		return ret;
-//		List<String> ret = new ArrayList<String>();
-//		
-//		StringBuilder word = new StringBuilder();
-//		int index = 0;
-//		while ( index < fullName.length() )
-//		{
-//			if (fullName.charAt(index) != ' ')
-//			{
-//				word.append(fullName.charAt(index));
-//			}else if (word.length() > 0)
-//			{
-//				ret.add(word.toString());
-//				word = new StringBuilder();
-//			}
-//			index++;
-//		}
-//		if (word.length() > 0)
-//		{
-//			ret.add(word.toString());
-//		}
-//		
-//		return ret;
 	}
 
 	private void setName(List<String> nameParts)
@@ -170,6 +153,15 @@ public class Student
 	{
 		return midName;
 	}
-	
-	
+
+	public String getId()
+	{
+		return id;
+	}
+
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+
 }

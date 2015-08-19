@@ -16,4 +16,9 @@ public class Util
 		row1.add("10");
 		row1.add("11");		
 	}
+	
+	public static int score(String string)
+	{
+		return Integer.parseInt(string);
+	}
 }

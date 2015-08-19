@@ -53,5 +53,23 @@ public class UtilTest
 		return retBool;
 	}
 	
-
+	@Test
+	public void testCaptureScore()
+	{
+		assertEquals(75, Util.score("75"));
+//		assertEquals(75, Util.score("g5"));
+	}
+	
+	@Test
+	public void testBadScoreEntered()
+	{
+		try
+		{
+			Util.score("adsf");
+			fail("Expected NumberFormatException on bad input!");
+		} catch (NumberFormatException e)
+		{
+			// TODO: handle exception
+		}
+	}
 }

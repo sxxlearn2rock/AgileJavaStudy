@@ -1,5 +1,7 @@
 package cn.sxx.agilejava.courseinfo;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +16,7 @@ abstract public class Session implements Comparable<Session>
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private Date startDate;
 	private int numberOfCredits;
+	private URL url;
 	
 	public Session(String department, String number)
 	{
@@ -28,6 +31,7 @@ abstract public class Session implements Comparable<Session>
 		this.startDate = startDate;
 	}
 	
+	abstract protected int getSessionLength();
 	
 	public void enroll(Student stu)
 	{
@@ -90,6 +94,13 @@ abstract public class Session implements Comparable<Session>
 		return (departCompare != 0)  ? departCompare : this.getNumber().compareTo(that.getNumber()) ;
 	}
 	
-	abstract protected int getSessionLength();
+	public void setUrl(String url) throws MalformedURLException
+	{
+		this.url = new URL(url);
+	}
 
+	public URL getUrl()
+	{
+		return url;
+	}
 }

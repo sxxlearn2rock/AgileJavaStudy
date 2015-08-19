@@ -1,7 +1,8 @@
 package cn.sxx.agilejava.courseinfo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.net.MalformedURLException;
 import java.util.Date;
 
 import org.junit.Before;
@@ -48,4 +49,21 @@ abstract public class SessionTest
 		assertEquals(student1,  session.getStudent(0));
 		assertEquals(student2,  session.getStudent(1));
 	}
+	
+	@Test
+	public void testSessionUrl() throws MalformedURLException
+	{
+		final String url = "http://jd.com";
+		session.setUrl(url);
+		assertEquals(url, session.getUrl().toString());
+	}
+	
 }
+
+
+
+
+
+
+
+

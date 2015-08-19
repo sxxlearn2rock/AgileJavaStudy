@@ -94,7 +94,18 @@ public class StudentTest
 		assertEquals(expectedGpa, stu.getGpa(), FLOAT_TOLERANCE);
 	}
 	
-
+	@Test
+	public void testBadlyFormattedName()
+	{		
+		try
+		{
+			new Student("a d g s");
+			fail("expected exception from 3+part name");
+		} catch (StudentNameFormatException e)
+		{
+			
+		}
+	}
 	
 }
 
