@@ -1,20 +1,18 @@
 package cn.sxx.agilejava.courseinfo;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
-public class SummerCourseSession extends CourseSession
+public class SummerCourseSession extends Session
 {
 
-	public SummerCourseSession(String department, String number, Date startDate)
+	public SummerCourseSession(Course course, Date startDate)
 	{
-		super(department, number, startDate);
+		super(course, startDate);
 	}
 	
-	public static SummerCourseSession create(String department, String number, Date startDate)
+	public static SummerCourseSession create(Course course, Date startDate)
 	{
-		return new SummerCourseSession(department, number, startDate);
+		return new SummerCourseSession(course, startDate);
 	}
 	
 	@Override

@@ -9,7 +9,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import cn.sxx.agilejava.courseinfo.Course;
 import cn.sxx.agilejava.courseinfo.CourseSession;
+import cn.sxx.agilejava.courseinfo.Session;
 
 public class CourseReportTest
 {
@@ -24,11 +26,11 @@ public class CourseReportTest
 	{
 		final Date date = new Date();
 		CourseReport report = new CourseReport();		
-		report.add(CourseSession.create("ITAL",  "330",  date));
-		report.add(CourseSession.create("ENGL",  "101",  date));
-		report.add(CourseSession.create("ITAL",  "410",  date));
-		report.add(CourseSession.create("CZEC",  "220",  date));		
-		report.add(CourseSession.create("CZEC",  "200",  date));
+		report.add(create("ITAL",  "330",  date));
+		report.add(create("ENGL",  "101",  date));
+		report.add(create("ITAL",  "410",  date));
+		report.add(create("CZEC",  "220",  date));		
+		report.add(create("CZEC",  "200",  date));
 //System.out.println(report);		
 		assertEquals("CZEC 200" + NEWLINE + 
 							"CZEC 220" + NEWLINE + 
@@ -42,12 +44,17 @@ public class CourseReportTest
 	public void testComparable()
 	{
 		final Date date = new Date();
-		CourseSession sessionA = CourseSession.create("CMSC",  "101",  date);
-		CourseSession sessionB = CourseSession.create("ENGL",  "101",  date);
+		Session sessionA = create("CMSC",  "101",  date);
+		Session sessionB = create("ENGL",  "101",  date);
 		assertTrue(sessionA.compareTo(sessionB) < 0);
 		
-		CourseSession sessionC = CourseSession.create("CMSC",  "101",  date);
+		Session sessionC = create("CMSC",  "101",  date);
 		assertEquals(0,  sessionA.compareTo(sessionC));
+	}
+	
+	private Session create(String department, String number, Date startDate)
+	{
+		return CourseSession.create(new Course(department, number), startDate);
 	}
 	
 }

@@ -14,16 +14,21 @@ import cn.sxx.agilejava.util.DateUtil;
 public class CourseSessionTest extends SessionTest
 {
 	@Override
-	protected Session createSession(String department, String number, Date startDate)
+	protected Session createSession(Course course, Date startDate)
 	{
-		return CourseSession.create(department, number, startDate);
+		return CourseSession.create(course, startDate);
 	}
 
 	@Test
 	public void testCourseDates()
 	{
-		Session session = createSession("ENGL","101", DateUtil.createDate(2003, 1, 6));
+		Session session = createSession(createCourse(), DateUtil.createDate(2003, 1, 6));
 		assertEquals(DateUtil.createDate(2003, 4, 25),  session.getEndDate());
+	}
+
+	private Course createCourse()
+	{
+		return new Course("ENGL", "101");
 	}
 
 }

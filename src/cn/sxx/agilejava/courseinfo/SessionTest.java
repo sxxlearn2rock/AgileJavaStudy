@@ -19,11 +19,12 @@ abstract public class SessionTest
 	@Before
 	public void setUp() throws Exception
 	{
-		session =createSession("ENGL","101", DateUtil.createDate(2003, 1, 6));		
+		session =createSession(new Course("ENGL","101"), DateUtil.createDate(2003, 1, 6));		
 		session.setNumberOfCredits(CREDITS);
 	}
 	
-	abstract protected Session createSession(String department, String number, Date startDate);
+//	abstract protected Session createSession(String department, String number, Date startDate);
+	abstract protected Session createSession(Course course, Date startDate);
 	
 	@Test
 	public void testCreate()

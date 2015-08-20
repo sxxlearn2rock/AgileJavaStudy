@@ -1,15 +1,17 @@
 package cn.sxx.agilejava.report;
 
-import static cn.sxx.agilejava.report.ReportConstant.*;
+import static cn.sxx.agilejava.report.ReportConstant.NEWLINE;
+import static cn.sxx.agilejava.report.ReportConstant.ROSTER_REPORT_FOOTER;
+import static cn.sxx.agilejava.report.ReportConstant.ROSTER_REPORT_HEADER;
 
-import cn.sxx.agilejava.courseinfo.CourseSession;
+import cn.sxx.agilejava.courseinfo.Session;
 import cn.sxx.agilejava.studentinfo.Student;
 
 public class RosterReport
 {	
-	private CourseSession session;
+	private Session session;
 	
-	public RosterReport(CourseSession session)
+	public RosterReport(Session session)
 	{
 		this.session = session;
 	}

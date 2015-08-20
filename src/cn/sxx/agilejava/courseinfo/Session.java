@@ -24,10 +24,10 @@ abstract public class Session implements Comparable<Session>
 		this.number = number;
 	}
 
-	protected Session(String department, String number, Date startDate)
+	protected Session(Course course, Date startDate)
 	{
-		this.department = department;
-		this.number = number;
+		this.department = course.getDepartment();
+		this.number = course.getNumber();
 		this.startDate = startDate;
 	}
 	
