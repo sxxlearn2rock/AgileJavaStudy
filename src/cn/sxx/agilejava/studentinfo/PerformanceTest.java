@@ -47,6 +47,11 @@ public class PerformanceTest
 		assertTrue(Arrays.equals(a, b));
 	}
 	
-
+	@Test
+	public void testAverageForNoScores()
+	{
+		Performance performance = new Performance();
+		assertEquals(0.0, performance.average(), TOLERANCE);
+	}
 
 }

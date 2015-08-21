@@ -20,6 +20,21 @@ public class Student
 		}
 	}
 	
+	public enum Flag
+	{
+		ON_CAMPUS(1),
+		TAX_EXEMPT(2),
+		MINOR(4),
+		TROUBLE_MAKER(8);
+		
+		private int mask;
+		private Flag(int mask)
+		{
+			this.mask = mask;
+		}
+	}
+	
+	private int settings = 0x0;
 	private static final int CREDITS_REQUIRED_FOR_FULLTIME = 12;
 	public static final String IN_STATE = "CO";
 	
@@ -56,6 +71,32 @@ public class Student
 		return ret;
 	}
 
+	public void set(Flag ... flags)
+	{
+		for (Flag flag : flags)
+		{
+			settings |= flag.mask;
+		}
+	}
+	
+	public void unset(Flag ... flags)
+	{
+		for (Flag flag : flags)
+		{
+			settings &= ~flag.mask;
+		}
+	}
+	
+	public boolean isOn(Flag flag)
+	{
+		return (settings & flag.mask) == flag.mask;
+	}
+	
+	public boolean isOff(Flag flag)
+	{
+		return (! isOn(flag));
+	}
+	
 	private void setName(List<String> nameParts)
 	{
 		lastName = removeLast(nameParts);

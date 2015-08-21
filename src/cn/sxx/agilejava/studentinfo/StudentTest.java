@@ -2,6 +2,8 @@ package cn.sxx.agilejava.studentinfo;
 
 import static org.junit.Assert.*;
 
+import java.sql.Struct;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -107,6 +109,21 @@ public class StudentTest
 		}
 	}
 	
+	@Test 
+	public void testFlags()
+	{
+		Student student = new Student("a");
+		student.set(Student.Flag.ON_CAMPUS,
+						  Student.Flag.TAX_EXEMPT,
+						  Student.Flag.MINOR);
+		assertTrue(student.isOn(Student.Flag.ON_CAMPUS));
+		assertTrue(student.isOn(Student.Flag.TAX_EXEMPT));
+		assertTrue(student.isOn(Student.Flag.MINOR));
+		assertTrue(student.isOff(Student.Flag.TROUBLE_MAKER));
+		
+		student.unset(Student.Flag.TAX_EXEMPT);
+		assertTrue(student.isOff(Student.Flag.TAX_EXEMPT));
+	}
 }
 
 

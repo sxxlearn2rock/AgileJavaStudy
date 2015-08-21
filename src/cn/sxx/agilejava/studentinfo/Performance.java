@@ -2,7 +2,7 @@ package cn.sxx.agilejava.studentinfo;
 
 public class Performance
 {
-	private int[] tests;
+	private int[] tests = {};
 	public void  setNumberOfTests(final int numberOfTests)
 	{
 		tests = new int[numberOfTests];
@@ -25,6 +25,10 @@ public class Performance
 	
 	public double average()
 	{
+		if (tests.length == 0)
+		{
+			return 0.0;
+		}
 		double total = 0.0;
 		for (int i : tests)
 		{
