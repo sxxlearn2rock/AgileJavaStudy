@@ -9,10 +9,28 @@ import org.junit.Test;
 
 public class AccountTest
 {
+	static final String ABA = "102000012";
+	static final String ACCOUNT_NUMBER = "1235489121610446481";
+	
+	Account accountPrime;
 
 	@Before
 	public void setUp() throws Exception
 	{
+		accountPrime = new Account();
+		accountPrime.setBankAba(ABA);
+		accountPrime.setBankAccountNumber(ACCOUNT_NUMBER);
+		accountPrime.setBankAccountType(Account.BankAccountType.CHECKING);
+	}
+	
+	@Test
+	public void testTransferFromBank()
+	{
+		accountPrime.setAch(new com.jimbob.ach.JimBobAch());
+		
+		final BigDecimal amount = new BigDecimal("50.00");
+		accountPrime.transferFromBank(amount);
+		assertEquals(amount, accountPrime.getBalance());
 	}
 
 	@Test
