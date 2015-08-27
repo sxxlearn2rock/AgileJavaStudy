@@ -1,5 +1,9 @@
 package cn.sxx.agilejava.util;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+
 public class StringUtil
 {
 	public static int occurrences(String string, String substring)
@@ -15,5 +19,27 @@ public class StringUtil
 			}
 		}
 		return occurrences;
+	}
+	
+	public static String concatenate(List<?> list)
+	{
+		StringBuilder sb = new StringBuilder();
+		for (Object object : list)
+		{
+			sb.append(String.format("%s%n", object));
+		}
+		return sb.toString();
+	}
+
+	public static String concatenateNumbers(List<? extends Number> list, int decimalPlaces)
+	{
+		String decimalFormat = "%." + decimalPlaces +"f";
+		StringBuilder sb = new StringBuilder();
+		for (Number number : list)
+		{
+			double value = number.doubleValue();
+			sb.append(String.format(decimalFormat+"%n", value));
+		}
+		return sb.toString();
 	}
 }

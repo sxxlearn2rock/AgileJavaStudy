@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class SearchTest
 {
-	private static final String URL = "http://jd.com";
+	static final String URL = "http://jd.com";
 
 	@Before
 	public void setUp() throws Exception
